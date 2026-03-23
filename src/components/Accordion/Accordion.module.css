@@ -1,0 +1,244 @@
+.section {
+  padding: 120px 0;
+  background: var(--bg-secondary);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.subtitle {
+  max-width: 360px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 16px;
+  align-self: flex-end;
+}
+
+/* Accordion List */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+}
+
+.accordionList.listVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Item */
+.item {
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.item.open {
+  background: var(--accordion-bg);
+}
+
+/* Trigger */
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: padding 0.3s ease;
+}
+
+.item.open .trigger {
+  padding-bottom: 20px;
+}
+
+.triggerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.itemNumber {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  min-width: 24px;
+  transition: color 0.3s ease;
+}
+
+.item.open .itemNumber {
+  color: var(--accent);
+}
+
+.itemTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.item.open .itemTitle {
+  color: var(--text-primary);
+}
+
+.trigger:hover .itemTitle {
+  color: var(--accent);
+}
+
+/* Icon */
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Content */
+.contentWrap {
+  overflow: hidden;
+  transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content {
+  padding-bottom: 32px;
+  padding-left: 48px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+.details {
+  display: flex;
+  gap: 64px;
+}
+
+.detailLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Deliverables */
+.deliverableList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.deliverable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.deliverable svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .subtitle {
+    max-width: 100%;
+    align-self: flex-start;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .content {
+    padding-left: 0;
+  }
+
+  .trigger {
+    padding: 20px 0;
+  }
+}
